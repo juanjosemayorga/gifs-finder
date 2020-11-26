@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { AddWord } from './components/AddWord/AddWord';
+import { GifGrid } from './components/GifGrid/GifGrid';
+import {
+  Container,
+  H1
+} from './AppStyles'
 
 function App() {
+
+  const [search, setSearch] = useState('search')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <H1>Busca los GIF's más divertidos!</H1>
+      <AddWord setSearch={setSearch}/>
+      <hr/>
+      <GifGrid search={search}/>
+    </Container>
   );
 }
 
